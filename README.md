@@ -39,3 +39,10 @@ Branch:
     git push -u origin amassiro_premix_OptionC_ECAL
 
     
+    
+Idea:
+
+    correction_factor_for_premixed_sample_transparency = value_LC_prime / value_LC;
+
+    Use the first IOV to define "value_LC_prime"
+    
