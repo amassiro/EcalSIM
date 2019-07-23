@@ -86,7 +86,7 @@ process.mixData.input.fileNames = cms.untracked.vstring([
   #'/store/mc/RunIISummer17PrePremix/Neutrino_E-10_gun/GEN-SIM-DIGI-RAW/PUAutumn18_102X_upgrade2018_realistic_v15-v1/00003/ED3110CF-AF42-A94C-B382-E7620DF2EAF1.root',
   #'/store/mc/RunIISummer17PrePremix/Neutrino_E-10_gun/GEN-SIM-DIGI-RAW/PUAutumn18_102X_upgrade2018_realistic_v15-v1/00000/1B520F65-6F89-9843-A9DC-DB8ED0F88B5B.root'
    '/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/17AA35B2-6C4D-7C46-B304-8A0844B4AEA0.root',
-   '/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/DB999423-8252-0447-B7FE-764E58B8541C.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/DB999423-8252-0447-B7FE-764E58B8541C.root',
    '/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/79107CE9-B5B4-DA43-8ACC-5EBBD78CEB32.root'
   ])
 
