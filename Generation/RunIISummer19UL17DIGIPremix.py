@@ -85,9 +85,18 @@ process.mixData.input.fileNames = cms.untracked.vstring([
   #'/store/mc/RunIISummer17PrePremix/Neutrino_E-10_gun/GEN-SIM-DIGI-RAW/PUAutumn18_102X_upgrade2018_realistic_v15-v1/00002/1C56C5CD-24BC-A841-A5D5-FD70C468F890.root',
   #'/store/mc/RunIISummer17PrePremix/Neutrino_E-10_gun/GEN-SIM-DIGI-RAW/PUAutumn18_102X_upgrade2018_realistic_v15-v1/00003/ED3110CF-AF42-A94C-B382-E7620DF2EAF1.root',
   #'/store/mc/RunIISummer17PrePremix/Neutrino_E-10_gun/GEN-SIM-DIGI-RAW/PUAutumn18_102X_upgrade2018_realistic_v15-v1/00000/1B520F65-6F89-9843-A9DC-DB8ED0F88B5B.root'
-   '/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/17AA35B2-6C4D-7C46-B304-8A0844B4AEA0.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/17AA35B2-6C4D-7C46-B304-8A0844B4AEA0.root', # -> now issue here ...
    #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/DB999423-8252-0447-B7FE-764E58B8541C.root',
-   '/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/79107CE9-B5B4-DA43-8ACC-5EBBD78CEB32.root'
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/79107CE9-B5B4-DA43-8ACC-5EBBD78CEB32.root'
+   
+   '/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/D58FA235-10D4-8C4C-863A-67D77BA41AA6.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/00A45230-7B63-1543-ADDF-07F657B30CE5.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/260C68AE-E710-9749-BC6D-6A9C3702E5E0.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/1798D750-4595-2F46-9F22-AF310CE389D5.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/FE0E6562-7444-854F-9D17-3AA0D034068B.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/60B0B300-B69A-1145-9E81-8D0F09E1C6C0.root',
+   #'/store/mc/RunIISummer19ULPrePremix/Neutrino_E-10_gun/PREMIX/UL17_106X_mc2017_realistic_v6-v1/70025/AD1EF9BC-A015-7F40-8700-ECAC408A9849.root'
+   
   ])
 
 
