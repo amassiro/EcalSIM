@@ -46,3 +46,9 @@ Idea:
 
     Use the first IOV to define "value_LC_prime"
     
+    
+    NB: using IOV to define changes, not time!
+    
+    
+    
+    
