@@ -73,3 +73,31 @@ Example:
     
     
     /RelValPREMIXUP18_PU25/CMSSW_10_3_0_pre4-PU25ns_103X_upgrade2018_realistic_v4-v1/GEN-SIM-DIGI-RAW 
+
+    
+    
+    
+Chat:
+
+    There are three ways to have one job process multiple different Runs of your choosing
+    
+    1) If you want N different Runs, first run N different jobs each writing a file with a different Run number. This can be done with the EmptySource using the option 'firstRun', from PoolSource use 'setRunNumber'. Then run a simple cmsRun job to merge all the files created into one file or just run your next job over all N files.
+    
+    2) If you are running a job using the EmptySource, you can specify for each new LuminosityBlock being generated, what Run number should be used
+    
+    process.source = cms.Source("EmptySource",
+                                     numberEventsInLuminosityBlock = cms.untracked.uint32(100), #makes the job create more than 1 Lumi
+                                     firstLuminosityBlockForEachRun = cms.untracked.VLuminosityBlockID( (2,1), (10,2), (35, 3) ) )
+    process.maxEvents.input = 100*3 #want 3 lumis, each with its own run
+    
+    3) If you are starting from a ROOT file, then you can override the run number for each LuminosityBlock
+    
+    process.source = cms.Source("PoolSource",
+                                     fileNames =...
+                                     setRunNumberForEachLumi = cms.untracked.vuint32(2, 10, 35) )#assumes 3 lumis
+    
+    You can see the full options for each of the sources by doing
+        edmPluginHelp -p EmptySource
+        edmPluginHelp -p PoolSource
+    
+    

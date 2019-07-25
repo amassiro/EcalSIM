@@ -30,7 +30,9 @@ process.maxEvents = cms.untracked.PSet(
 )
 
 # Input source
-process.source = cms.Source("EmptySource")
+process.source = cms.Source("EmptySource",
+                             numberEventsInLuminosityBlock = cms.untracked.uint32(10), # makes the job create more than 1 Lumi
+)
 
 process.options = cms.untracked.PSet(
 
