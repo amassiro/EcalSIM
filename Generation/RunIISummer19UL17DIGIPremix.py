@@ -26,7 +26,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(10)
+    input = cms.untracked.int32(-1)
 )
 
 # Input source
@@ -74,7 +74,7 @@ process.PREMIXRAWoutput = cms.OutputModule("PoolOutputModule",
         dataTier = cms.untracked.string('GEN-SIM-DIGI'),
         filterName = cms.untracked.string('')
     ),
-    fileName = cms.untracked.string('file:HIG-RunIISummer19UL17DIGIPremix-00001.root'),
+    fileName = cms.untracked.string('file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root'),
     outputCommands = process.PREMIXRAWEventContent.outputCommands,
     splitLevel = cms.untracked.int32(0)
 )
