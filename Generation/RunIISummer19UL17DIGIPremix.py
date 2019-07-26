@@ -33,7 +33,7 @@ process.maxEvents = cms.untracked.PSet(
 process.source = cms.Source("PoolSource",
     dropDescendantsOfDroppedBranches = cms.untracked.bool(False),
     fileNames = cms.untracked.vstring('file:step2_SIM.root'),
-    setRunNumberForEachLumi = cms.untracked.vuint32(1, 2, 4, 5, 6, 9, 10),  #assumes 7 lumis
+    setRunNumberForEachLumi = cms.untracked.vuint32(1, 2, 4, 5, 6, 9, 10, 14, 20, 22, 25, 30),  #assumes 7 lumis
     inputCommands = cms.untracked.vstring(
         'keep *', 
         'drop *_genParticles_*_*', 
