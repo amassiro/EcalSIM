@@ -1,6 +1,10 @@
 Test with generation
 ====
 
+Needed fix:
+
+    https://github.com/cms-sw/cmssw/pull/27649
+
 GENSIM
 
     cmsRun ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.py
