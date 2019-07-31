@@ -4,6 +4,10 @@ Test with generation
 Needed fix:
 
     https://github.com/cms-sw/cmssw/pull/27649
+    
+    git-cms-addpkg  IOPool/Input
+
+    -> and modify file: IOPool/Input/src/RootFile.cc
 
 GENSIM
 
