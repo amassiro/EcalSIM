@@ -22,6 +22,9 @@ Install:
     git-cms-addpkg  RecoLocalCalo/EcalRecProducers
     git-cms-addpkg  CalibCalorimetry/EcalLaserCorrection
     
+    git-cms-addpkg  CondFormats/DataRecord/
+    git-cms-addpkg  CondFormats/EcalObjects/
+    
     
     mkdir ECALValidation
     cd ECALValidation/
@@ -31,12 +34,14 @@ Install:
 Branch:
 
     git checkout -b amassiro_premix_OptionC_ECAL
+    git checkout -b amassiro_premix_OptionC_2tags_ECAL
     
     git remote add origin git@github.com:amassiro/cmssw
     
     git fetch origin
     
     git push -u origin amassiro_premix_OptionC_ECAL
+    git push -u origin amassiro_premix_OptionC_2tags_ECAL
 
     
     
@@ -52,3 +57,9 @@ Idea:
     
     
     
+    amassiro_premix_OptionC_2tags_ECAL
+    --> completely rewritten code. New record in DB is needed to handle the "ratio" and get LC_prime 
+    --> not simple workaround using "ref" or "lin" was found, keeping the current code and 
+        the default value for MC (and Data), in simulation and reconstruction
+        
+        
