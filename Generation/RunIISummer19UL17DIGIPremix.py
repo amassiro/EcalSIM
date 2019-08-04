@@ -107,6 +107,23 @@ process.mixData.input.fileNames = cms.untracked.vstring([
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v6', '')
 
+#
+# For version in "amassiro_premix_OptionC_2tags_ECAL"
+#
+
+process.GlobalTag.toGet = cms.VPSet(
+
+     cms.PSet(record = cms.string("EcalLaserAPDPNRatiosMCRcd"),
+                   tag = cms.string("EcalLaserAPDPNRatios_UL_2017_mc"),
+                   connect = cms.string("frontier://FrontierProd/CMS_CONDITIONS")
+                  ),
+)
+     
+#
+#
+#
+
+     
 # Path and EndPath definitions
 process.digitisation_step = cms.Path(process.pdigi)
 process.datamixing_step = cms.Path(process.pdatamix)
