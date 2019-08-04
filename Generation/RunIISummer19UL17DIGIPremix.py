@@ -113,7 +113,7 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v6', '')
 
 process.GlobalTag.toGet = cms.VPSet(
 
-     cms.PSet(record = cms.string("EcalLaserAPDPNRatiosMCRcd"),
+     cms.PSet(     record = cms.string("EcalLaserAPDPNRatiosMCRcd"),
                    tag = cms.string("EcalLaserAPDPNRatios_UL_2017_mc"),
                    connect = cms.string("frontier://FrontierProd/CMS_CONDITIONS")
                   ),
