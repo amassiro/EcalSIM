@@ -26,12 +26,12 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(100)
+    input = cms.untracked.int32(1000)
 )
 
 # Input source
 process.source = cms.Source("EmptySource",
-                             numberEventsInLuminosityBlock = cms.untracked.uint32(10), # makes the job create more than 1 Lumi
+                             numberEventsInLuminosityBlock = cms.untracked.uint32(250), # makes the job create more than 1 Lumi
 )
 
 process.options = cms.untracked.PSet(
@@ -67,7 +67,7 @@ process.FEVTDEBUGoutput = cms.OutputModule("PoolOutputModule",
 process.XMLFromDBSource.label = cms.string("Extended")
 process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, '100X_upgrade2018_realistic_forECAL_A_alpha', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v7', '')
 
 process.generator = cms.EDFilter("Pythia8GeneratorFilter",
     PythiaParameters = cms.PSet(

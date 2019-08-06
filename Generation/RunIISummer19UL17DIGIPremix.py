@@ -34,20 +34,28 @@ process.source = cms.Source("PoolSource",
     dropDescendantsOfDroppedBranches = cms.untracked.bool(False),
     fileNames = cms.untracked.vstring('file:step2_SIM.root'),
     #setRunNumberForEachLumi = cms.untracked.vuint32(1, 2, 4, 5, 6, 9, 10, 14, 20, 22, 25, 30),  #assumes 7 lumis
-    setRunNumberForEachLumi = cms.untracked.vuint32(299337,
-                                                    299338, 
-                                                    299339,
-                                                    299340,
-                                                    299341,
-                                                    299342,
-                                                    299343,
-                                                    299344,
-                                                    299345,
-                                                    299346,
-                                                    299347,
-                                                    299348,
-                                                    300000
-                                                    ),  #assumes 7 lumis
+    setRunNumberForEachLumi = cms.untracked.vuint32(
+#                                                    299337,
+#                                                    299338, 
+#                                                    299339,
+#                                                    299340,
+#                                                    299341,
+#                                                    299342,
+#                                                    299343,
+#                                                    299344,
+#                                                    299345,
+#                                                    299346,
+#                                                    299347,
+#                                                    299348,
+#                                                    300000
+
+                                                    298475,
+                                                    298486, 
+                                                    298615,
+                                                    303454
+
+ 
+                                                   ),  #assumes 7 lumis
     inputCommands = cms.untracked.vstring(
         'keep *', 
         'drop *_genParticles_*_*', 
@@ -117,9 +125,15 @@ process.mixData.input.fileNames = cms.untracked.vstring([
   ])
 
 
+#
+#    106X_mc2017_realistic_v7 
+#    final GT for UL2017
+#    laser tag EcalLaserAPDPNRatios_UL_2017_mc
+#
+
 # Other statements
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v6', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v7', '')
 
 #
 # For version in "amassiro_premix_OptionC_2tags_ECAL"
@@ -127,17 +141,26 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v6', '')
 
 process.GlobalTag.toGet = cms.VPSet(
 
+     #
+     # the tag used in the pre-mix library generation
+     #
      cms.PSet(     record = cms.string("EcalLaserAPDPNRatiosMCRcd"),
                    tag = cms.string("EcalLaserAPDPNRatios_UL_2017_mc"),
                    connect = cms.string("frontier://FrontierProd/CMS_CONDITIONS")
                   ),
 
-
+     #
+     # data tag now used for MC
+     #
      cms.PSet(     record = cms.string("EcalLaserAPDPNRatiosRcd"),
-                   tag = cms.string("EcalLaserAPDPNRatios_UL_2016_mc_3sigma"),
+                   #tag = cms.string("EcalLaserAPDPNRatios_UL_2016_mc_3sigma"),
+                   tag = cms.string("EcalLaserAPDPNRatios_weekly_hlt"),
                    connect = cms.string("frontier://FrontierProd/CMS_CONDITIONS")
                   ),
 
+#
+#   https://twiki.cern.ch/twiki/bin/viewauth/CMS/EcalDB#Laser_APDPNRatios
+#
 
 
 )
