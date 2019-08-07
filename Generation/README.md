@@ -59,19 +59,31 @@ Premix
     
     cmsRun RunIISummer19UL17DIGIPremix.py
     
+    In the output we have already:  "FEDRawDataCollection                  "rawDataCollector"          ""                "DIGI2RAW"   " --> good!
+
     
+If in need to run HLT specific (?):
     
-    cmsDriver.py step2 --datamix PreMix  --conditions auto:phase1_2018_realistic --pileup_input das:/RelValPREMIXUP18_PU25/CMSSW_10_3_0_pre4-PU25ns_103X_upgrade2018_realistic_v4-v1/GEN-SIM-DIGI-RAW   -n 10 --era Run2_2018 --eventcontent FEVTDEBUGHLT -s DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval2018 --datatier GEN-SIM-DIGI-RAW --pileup AVE_35_BX_25ns --geometry DB:Extended
+    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root --mc --eventcontent RAWSIM --datatier GEN-SIM-RAW --conditions 106X_mc2017_realistic_v7 --customise_commands 'process.source.bypassVersionCheck = cms.untracked.bool(True)' --step HLT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename HIG-RunIISummer19UL17HLT-00001_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1858 
     
-    Instructions here: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
+    cmsRun HIG-RunIISummer19UL17HLT-00001_1_cfg.py
     
-    cmsRun step2_DIGI_L1_DIGI2RAW_HLT_PU.py
+
+    -> but I need the correct menu, not set correctly now
     
     
 RAW2RECO
 
-    cmsRun step3_RAW2DIGI_L1Reco_RECO_EI_PAT_VALIDATION_DQM_PU.py
+    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root  --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 106X_mc2017_realistic_v7 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename RAW2RECO.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 3042 
+    
+    cmsRun RAW2RECO.py
+    
+    
+All steps:
 
+    https://cms-pdmv.cern.ch/mcm/chained_requests?prepid=HIG-chain_RunIISummer19UL17wmLHEGEN_flowRunIISummer19UL17SIM_flowRunIISummer19UL17DIGIPremix_flowRunIISummer19UL17HLT_flowRunIISummer19UL17RECO_flowRunIISummer19UL17MiniAOD_flowRunIISummer19UL17NanoAOD-00001&page=0&shown=15
+    
+    
     
 Example:
 
