@@ -84,7 +84,7 @@ RAW2RECO
     
 MiniAOD 
 
-    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 106X_mc2017_realistic_v7 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename MINIAOD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600  --customise_commands 'del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;'
+    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 106X_mc2017_realistic_v7 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename MINIAOD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600  --customise_commands "del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;   process.MINIAODSIMoutput.outputCommands.append('keep *_particleFlowSuperClusterECAL_*_*');"
     
     
     cmsRun MINIAOD.py

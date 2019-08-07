@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 106X_mc2017_realistic_v7 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename MINIAOD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600 --customise_commands del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;
+# with command line options: step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 106X_mc2017_realistic_v7 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename MINIAOD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600 --customise_commands del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;   process.MINIAODSIMoutput.outputCommands.append('keep particleFlowSuperClusterECAL_*_*')
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2017_cff import Run2_2017
@@ -184,7 +184,7 @@ process = miniAOD_customizeAllMC(process)
 
 # Customisation from command line
 
-del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;
+del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;   process.MINIAODSIMoutput.outputCommands.append('keep *_particleFlowSuperClusterECAL_*_*');
 # Add early deletion of temporary data products to reduce peak memory need
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
