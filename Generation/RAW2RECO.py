@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 106X_mc2017_realistic_v7 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename RAW2RECO.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 3042
+# with command line options: step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 106X_mc2017_realistic_v7 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename RAW2RECO.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 3042
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2017_cff import Run2_2017
@@ -30,7 +30,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root'),
+    fileNames = cms.untracked.vstring('file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root'),
     secondaryFileNames = cms.untracked.vstring()
 )
 
