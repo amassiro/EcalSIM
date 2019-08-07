@@ -64,7 +64,10 @@ Premix
     
 If in need to run HLT specific (?):
     
+    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root --mc --eventcontent RAWSIM --datatier GEN-SIM-RAW --conditions 106X_mc2017_realistic_v7 --customise_commands 'process.source.bypassVersionCheck = cms.untracked.bool(True)' --step HLT:2e34v40 --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename HIG-RunIISummer19UL17HLT-00001_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1858 
+    
     cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root --mc --eventcontent RAWSIM --datatier GEN-SIM-RAW --conditions 106X_mc2017_realistic_v7 --customise_commands 'process.source.bypassVersionCheck = cms.untracked.bool(True)' --step HLT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename HIG-RunIISummer19UL17HLT-00001_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1858 
+    
     
     cmsRun HIG-RunIISummer19UL17HLT-00001_1_cfg.py
     
@@ -74,16 +77,26 @@ If in need to run HLT specific (?):
     
 RAW2RECO
 
-    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root  --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 106X_mc2017_realistic_v7 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename RAW2RECO.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 3042 
+    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root  --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 106X_mc2017_realistic_v7 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename RAW2RECO.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 3042 
     
     cmsRun RAW2RECO.py
+
+    
+MiniAOD 
+
+    cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 106X_mc2017_realistic_v7 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename MINIAOD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600 
+
+    cmsRun MINIAOD.py
     
     
 All steps:
 
     https://cms-pdmv.cern.ch/mcm/chained_requests?prepid=HIG-chain_RunIISummer19UL17wmLHEGEN_flowRunIISummer19UL17SIM_flowRunIISummer19UL17DIGIPremix_flowRunIISummer19UL17HLT_flowRunIISummer19UL17RECO_flowRunIISummer19UL17MiniAOD_flowRunIISummer19UL17NanoAOD-00001&page=0&shown=15
     
-    
+Test using the toolkit https://github.com/amassiro/EcalZee: 
+
+    cmsRun dumpMC.py  inputFiles=file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root     outputFile=test.root
+
     
 Example:
 
