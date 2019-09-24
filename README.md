@@ -44,6 +44,10 @@ Branch:
     git push -u origin amassiro_premix_OptionC_ECAL
     git push -u origin amassiro_premix_OptionC_2tags_ECAL
 
+
+Rebase: 
+ 
+    git cms-rebase-topic amassiro:amassiro_premix_OptionC_2tags_ECAL
     
     
 Idea:
