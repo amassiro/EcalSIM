@@ -72,4 +72,9 @@ Idea:
     --> not simple workaround using "ref" or "lin" was found, keeping the current code and 
         the default value for MC (and Data), in simulation and reconstruction
         
-        
+Test runthematrix:
+
+    runTheMatrix.py --what premix -l 250202.172 --label AMASSIROTEST --noCaf -t 8 -m 4500 -b 'fullSimPU2017_premix' --wm test
+
+    
+    
