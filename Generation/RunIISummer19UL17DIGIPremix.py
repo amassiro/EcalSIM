@@ -131,9 +131,14 @@ process.GlobalTag.toGet = cms.VPSet(
      #
      # the tag used in the pre-mix library generation
      #
+     #cms.PSet(     record = cms.string("EcalLaserAPDPNRatiosMCRcd"),
+                   #tag = cms.string("EcalLaserAPDPNRatios_UL_2017_mc"),
+                   #connect = cms.string("frontier://FrontierProd/CMS_CONDITIONS")
+                  #),
+
      cms.PSet(     record = cms.string("EcalLaserAPDPNRatiosMCRcd"),
-                   tag = cms.string("EcalLaserAPDPNRatios_UL_2017_mc"),
-                   connect = cms.string("frontier://FrontierProd/CMS_CONDITIONS")
+                   tag = cms.string("EcalLaserAPDPNRatiosMC"),
+                   connect = cms.string("sqlite_file:EcalLaserAPDPNRatiosMC.db")
                   ),
 
      #
