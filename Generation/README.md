@@ -28,7 +28,9 @@ DIGI2RAW
     
     step2_SIM.root -> ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.root
     
+    mv ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.root step2_SIM.root
 
+    
 Premix
 
     cmsDriver.py step1 --fileout file:ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.root  --pileup_input "dbs:/Neutrino_E-10_gun/RunIISummer17PrePremix-PUAutumn18_102X_upgrade2018_realistic_v15-v1/GEN-SIM-DIGI-RAW" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 102X_upgrade2018_realistic_v15 --step DIGI,DATAMIX,L1,DIGI2RAW,HLT:@relval2018 --procModifiers premix_stage2 --nThreads 8 --geometry DB:Extended --datamix PreMix --era Run2_2018 --python_filename EXO-RunIIAutumn18DRPremix-00305_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 2626 
