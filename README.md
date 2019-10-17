@@ -32,6 +32,9 @@ Install:
     git-cms-addpkg  CondCore/EcalPlugins/ 
     
     
+    git-cms-addpkg  Configuration/PyReleaseValidation/ 
+
+        
     mkdir ECALValidation
     cd ECALValidation/
     git clone git@github.com:amassiro/EcalSIM.git
