@@ -54,6 +54,12 @@ Rebase:
  
     git cms-rebase-topic amassiro:amassiro_premix_OptionC_2tags_ECAL
     
+
+Just downlaod my branch:
+
+    git cms-init
+    git    cms-merge-topic    amassiro:amassiro_premix_OptionC_2tags_ECAL
+    
     
 Idea:
 
