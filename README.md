@@ -44,6 +44,7 @@ Branch:
 
     git checkout -b amassiro_premix_OptionC_ECAL
     git checkout -b amassiro_premix_OptionC_2tags_ECAL
+    git checkout -b amassiro_premix_OptionC_2tags_ECAL_11_0_X
     
     git remote add origin git@github.com:amassiro/cmssw
     
@@ -51,11 +52,13 @@ Branch:
     
     git push -u origin amassiro_premix_OptionC_ECAL
     git push -u origin amassiro_premix_OptionC_2tags_ECAL
+    git push -u origin amassiro_premix_OptionC_2tags_ECAL_11_0_X
 
 
 Rebase: 
  
     git cms-rebase-topic amassiro:amassiro_premix_OptionC_2tags_ECAL
+    git cms-rebase-topic amassiro:amassiro_premix_OptionC_2tags_ECAL_11_0_X
     
 
 Just downlaod my branch:
