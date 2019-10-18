@@ -12,6 +12,7 @@ Where:
     and for the PR:
     
     /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/ToRebase/CMSSW_11_0_X_2019-10-06-2300/src
+    /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/ToRebase/CMSSW_11_0_X_2019-10-17-2300/src
     
     
 Install:
