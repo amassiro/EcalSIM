@@ -7,3 +7,9 @@ EcalLaserDbRecordMC.cc:(.text._ZN3edm10eventsetup23findDependentRecordsForI19Eca
 collect2: error: ld returned 1 exit status
 gmake: *** [config/SCRAM/GMake/Makefile.rules:1732: tmp/slc7_amd64_gcc820/src/CalibCalorimetry/EcalLaserCorrection/src/CalibCalorimetryEcalLaserCorrection/libCalibCalorimetryEcalLaserCorrection.so] Error 1
 gmake: *** Waiting for unfinished jobs....
+
+
+This file was not committed:
+
+    CondFormats/DataRecord/src/EcalLaserAPDPNRatiosMCRcd.cc
+    
