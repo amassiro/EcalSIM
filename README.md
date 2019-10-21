@@ -66,6 +66,7 @@ Just downlaod my branch:
 
     git cms-init
     git    cms-merge-topic    amassiro:amassiro_premix_OptionC_2tags_ECAL
+    git    cms-merge-topic    amassiro:amassiro_premix_OptionC_2tags_ECAL_11_0_X
     
     
 Idea:
