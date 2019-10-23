@@ -40,3 +40,13 @@ Preparing to run 250202.172 TTbar_13UP17+TTbar_13UP17+DIGIPRMXUP17_PU25_RD+RECOP
 
 # in: /afs/cern.ch/work/a/amassiro/ECAL/SIM/CMSSW_11_0_0_pre8/src dryRun for 'cd 250202.172_TTbar_13UP17+TTbar_13UP17+DIGIPRMXUP17_PU25_RD+RECOPRMXUP17_PU25+HARVESTUP17_PU25
  cmsDriver.py step4  --conditions auto:phase1_2017_realistic -s HARVESTING:@standardValidationNoHLT+@standardDQMFakeHLT+@miniAODValidation+@miniAODDQM --filetype DQM --geometry DB:Extended --era Run2_2017 --mc  --io HARVESTUP17_PU25.io --python HARVESTUP17_PU25.py -n 100  --filein file:step3_inDQM.root --fileout file:step4.root  > step4_TTbar_13UP17+TTbar_13UP17+DIGIPRMXUP17_PU25_RD+RECOPRMXUP17_PU25+HARVESTUP17_PU25.log  2>&1
+
+ 
+ 
+PR numbers
+====
+
+    https://github.com/cms-sw/cmssw/pull/28214
+    
+    
+    
