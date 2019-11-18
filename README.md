@@ -82,6 +82,8 @@ Test runthematrix:
 
     runTheMatrix.py --what premix -l 250202.172 --label AMASSIROTEST --noCaf -t 8 -m 4500 -b 'fullSimPU2017_premix' --wm test
 
+    runTheMatrix.py --what premix -l 250202.183 --label AMASSIROTEST --noCaf -t 8 -m 4500 -b 'fullSimPU2018_premix' --wm test
+
     
     # in: /afs/cern.ch/work/a/amassiro/ECAL/SIM/ToRebase/CMSSW_11_0_X_2019-10-06-2300/src dryRun for 'cd 250202.172_TTbar_13UP17+TTbar_13UP17+DIGIPRMXUP17_PU25_RD+RECOPRMXUP17_PU25+HARVESTUP17_PU25
     cmsDriver.py TTbar_13TeV_TuneCUETP8M1_cfi  --conditions auto:phase1_2017_realistic -n 10 --era Run2_2017 --eventcontent FEVTDEBUG --relval 9000,50 -s GEN,SIM --datatier GEN-SIM --beamspot Realistic25ns13TeVEarly2017Collision --io TTbar_13UP17.io --python TTbar_13UP17.py --fileout file:step1.root  --nThreads 8 > step1_TTbar_13UP17+TTbar_13UP17+DIGIPRMXUP17_PU25_RD+RECOPRMXUP17_PU25+HARVESTUP17_PU25.log  2>&1
