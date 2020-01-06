@@ -48,6 +48,11 @@ Preparing to run 250202.172 TTbar_13UP17+TTbar_13UP17+DIGIPRMXUP17_PU25_RD+RECOP
 
  
  
+Conddb:
+
+    https://cms-conddb.cern.ch/cmsDbBrowser/list/Prod/tags/EcalLaserAPDPNRatios_Run_Dep_MC
+ 
+ 
 PR numbers
 ====
 
