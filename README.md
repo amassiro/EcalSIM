@@ -8,6 +8,7 @@ Kate:
 Where:
 
     /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/CMSSW_10_6_0/src/ECALValidation/EcalSIM
+    /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/CMSSW_11_1_0_pre4/src/ECALValidation/EcalSIM
     
     and for the PR:
     

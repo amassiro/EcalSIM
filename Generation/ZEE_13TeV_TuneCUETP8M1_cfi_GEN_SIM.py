@@ -56,7 +56,7 @@ process.FEVTDEBUGoutput = cms.OutputModule("PoolOutputModule",
         filterName = cms.untracked.string('')
     ),
     eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
-    fileName = cms.untracked.string('ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.root'),
+    fileName = cms.untracked.string('/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.root'),
     outputCommands = process.FEVTDEBUGEventContent.outputCommands,
     splitLevel = cms.untracked.int32(0)
 )
@@ -67,7 +67,10 @@ process.FEVTDEBUGoutput = cms.OutputModule("PoolOutputModule",
 process.XMLFromDBSource.label = cms.string("Extended")
 process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v7', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, '111X_upgrade2018_realistic_RunDep_v1', '')
+#process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mc2017_realistic_v7', '')
+
+
 
 process.generator = cms.EDFilter("Pythia8GeneratorFilter",
     PythiaParameters = cms.PSet(

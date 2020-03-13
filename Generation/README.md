@@ -13,6 +13,24 @@ GENSIM
 
     cmsRun ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.py
 
+    
+    cmsDriver.py ZEE_13TeV_TuneCUETP8M1_cfi  \
+         --conditions auto:phase1_2018_realistic -n 100 \
+         --era Run2_2018 --relval 200000,100 -s GEN,SIM --datatier GEN-SIM \
+         --beamspot Realistic25ns13TeVEarly2018Collision --eventcontent FEVTDEBUG \
+         --io ZEE_13UP18_RD.io --python ZEE_13UP18_RD.py\
+         --conditions=111X_upgrade2018_realistic_RunDep_v1 --no_exec --fileout file:/tmp/amassiro/gen.root --nThreads 8 \
+         --python_filename ZEE_13TeV_TuneCUETP8M1_cfi_RunDepTest_GEN_SIM.py 
+    
+    
+    --customise_commands process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(1000) \n \
+         process.GlobalTag.toGet = cms.VPSet( cms.PSet(     record = cms.string('EcalLaserAPDPNRatiosRcd'),  tag = cms.string('EcalLaserAPDPNRatios_Run_Dep_MC'),  connect = cms.string('frontier://FrontierProd/CMS_CONDITIONS') ) ) \
+         
+    cmsRun ZEE_13TeV_TuneCUETP8M1_cfi_RunDepTest_GEN_SIM.py 
+    
+         
+    
+    
 DIGI2RAW
     
     voms-proxy-init -voms cms -rfc
@@ -64,6 +82,35 @@ Premix
     In the output we have already:  "FEDRawDataCollection                  "rawDataCollector"          ""                "DIGI2RAW"   " --> good!
 
     
+    
+    
+    ZEE_13TeV_TuneCUETP8M1_cfi_GEN_SIM.root
+    
+    cmsDriver.py step2   --filein file:/tmp/amassiro/gen.root --fileout file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RAW.root  \
+           --pileup_input "das:/RelValPREMIXUP18_PU25/CMSSW_11_1_0_pre2-PU25ns_111X_upgrade2018_realistic_RunDep_premix_v1-v1/PREMIX" \
+           --mc --eventcontent PREMIXRAW --runUnscheduled --datatier GEN-SIM-DIGI-RAW \
+           --conditions 111X_upgrade2018_realistic_RunDep_v1  \
+           --step DIGI,DATAMIX,L1,DIGI2RAW --nThreads 8 \
+            --procModifiers premix_stage2    --geometry DB:Extended --datamix PreMix --era Run2_2018 \
+            -s DIGI:pdigi_valid,DATAMIX,L1,DIGI2RAW  \
+             --io DIGIPRMXUP18_PU25_RD.io \
+            --python_filename Zee_DIGIPremix_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1000
+    
+    
+    
+    step2 --datamix PreMix
+    --conditions auto:phase1_2018_realistic --pileup_input das:/RelValPREMIXUP18_PU25/CMSSW_11_1_0_pre2-PU25ns_111X_upgrade2018_realistic_RunDep_premix_v1-v1/PREMIX 
+    --customise_commands process.EcalLaserCorrectionServiceMC = cms.ESProducer('EcalLaserCorrectionServiceMC') \n process.GlobalTag.toGet = cms.VPSet( cms.PSet(     record = cms.string('EcalLaserAPDPNRatiosMCRcd'),  tag = cms.string('EcalLaserAPDPNRatios_Run_Dep_MC_first_IOV'),  connect = cms.string('frontier://FrontierProd/CMS_CONDITIONS') ), cms.PSet(     record = cms.string('EcalLaserAPDPNRatiosRcd'),  tag = cms.string('EcalLaserAPDPNRatios_Run_Dep_MC'),  connect = cms.string('frontier://FrontierProd/CMS_CONDITIONS') ) )  \n process.mixData.workers.ecal.timeDependent=True \n process.source.firstLuminosityBlockForEachRun = cms.untracked.VLuminosityBlockID(*[cms.LuminosityBlockID(x,y) for x,y in ((315257, 1), (316082, 222), (316720, 445), (317527, 668), (320917, 890), (321414, 1112), (321973, 1334), (322492, 1556), (324245, 1779))])
+    --era Run2_2018 --procModifiers premix_stage2 -s DIGI:pdigi_valid,DATAMIX,L1,DIGI2RAW,HLT:@relval2018 --datatier GEN-SIM-DIGI-RAW-HLTDEBUG --eventcontent FEVTDEBUGHLT --io DIGIPRMXUP18_PU25_RD.io --python DIGIPRMXUP18_PU25_RD.py --conditions=111X_upgrade2018_realistic_RunDep_v1 -n 100 --no_exec --filein file:step1.root --fileout file:step2.root --nThreads 8
+    
+    cmsRun Zee_DIGIPremix_cfg.py 
+    
+    https://cmsweb.cern.ch/reqmgr2/fetch?rid=chayanit_RVCMSSW_11_1_0_pre4ZEE_13UP18_RD_PUpmx25ns__200307_151654_9609
+    
+    
+    
+    
+    
 If in need to run HLT specific:
     
     cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17DIGIPremix-00001.STEP1.root --mc --eventcontent RAWSIM --datatier GEN-SIM-RAW --conditions 106X_mc2017_realistic_v7 --customise_commands 'process.source.bypassVersionCheck = cms.untracked.bool(True)' --step HLT:2e34v40 --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename HIG-RunIISummer19UL17HLT-00001_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1858 
@@ -84,12 +131,27 @@ RAW2RECO
     cmsRun RAW2RECO.py
 
     
+    
+    
+    cmsDriver.py step1 --filein file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RAW.root  --fileout file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RECO.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 111X_upgrade2018_realistic_RunDep_v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename RAW2RECO_Zee.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 100 
+    
+    cmsRun RAW2RECO_Zee.py
+    
+    
+    
 MiniAOD 
 
     cmsDriver.py step1 --filein file:/tmp/amassiro/HIG-RunIISummer19UL17RECO-00001.root --fileout file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 106X_mc2017_realistic_v7 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename MINIAOD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600  --customise_commands "del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;   process.MINIAODSIMoutput.outputCommands.append('keep *_particleFlowSuperClusterECAL_*_*');"
     
     
     cmsRun MINIAOD.py
+    
+    
+    
+    cmsDriver.py step1 --filein file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RECO.root --fileout file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_MINIAOD.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 111X_upgrade2018_realistic_RunDep_v1 --step PAT --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename MINIAOD_Zee.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 9600  --customise_commands "del process.patTrigger; del process.selectedPatTrigger; del process.slimmedPatTrigger;   process.MINIAODSIMoutput.outputCommands.append('keep *_particleFlowSuperClusterECAL_*_*');"
+    
+    cmsRun MINIAOD_Zee.py
+    
     
     
 All steps:
