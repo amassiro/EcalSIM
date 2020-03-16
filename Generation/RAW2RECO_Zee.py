@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: step1 --filein file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RAW.root --fileout file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RECO.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 111X_upgrade2018_realistic_RunDep_v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename RAW2RECO_Zee.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 100
+# with command line options: step1 --filein file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RAW.root --fileout file:/tmp/amassiro/ZEE_13TeV_TuneCUETP8M1_cfi_RECO.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 111X_upgrade2018_realistic_RunDep_v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename RAW2RECO_Zee.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 500
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2018_cff import Run2_2018
@@ -25,7 +25,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(100),
+    input = cms.untracked.int32(500),
     output = cms.optional.untracked.allowed(cms.int32,cms.PSet)
 )
 
@@ -64,7 +64,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('step1 nevts:100'),
+    annotation = cms.untracked.string('step1 nevts:500'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )

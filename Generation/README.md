@@ -162,6 +162,16 @@ Test using the toolkit https://github.com/amassiro/EcalZee:
 
     cmsRun dumpMC.py  inputFiles=file:/tmp/amassiro/HIG-RunIISummer19UL17MiniAOD-00001.root     outputFile=test.root
 
+    ln -s ../../EcalZee/test/dumpMC.py
+
+    
+    tree = (TTree*) _file0->Get("TreeProducer/tree")
+    tree->Draw("std_vector_Ele_r9[0]", "@std_vector_Ele_r9.size()>=1 && std_vector_Ele_r9[0]>0")
+
+    tree->Draw("std_vector_Ele_r9[0]", "@std_vector_Ele_r9.size()>=1")
+
+ 
+    
     
 Example:
 
