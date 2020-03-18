@@ -165,6 +165,13 @@ Test using the toolkit https://github.com/amassiro/EcalZee:
     ln -s ../../EcalZee/test/dumpMC.py
 
     
+    cmsRun dumpMC.py  inputFiles=/store/relval/CMSSW_11_1_0_pre4/RelValZEE_13UP18_RD/MINIAODSIM/PUpmx25ns_111X_upgrade2018_realistic_RunDep_v1-v1/10000/F01022D0-54FC-A749-818F-C168534B7167.root     outputFile=test.root
+
+    
+     
+     
+     
+    
     tree = (TTree*) _file0->Get("TreeProducer/tree")
     tree->Draw("std_vector_Ele_r9[0]", "@std_vector_Ele_r9.size()>=1 && std_vector_Ele_r9[0]>0")
 
