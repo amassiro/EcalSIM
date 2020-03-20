@@ -4,51 +4,65 @@
 void drawSmearing(std::string var, int nbin, float min, float max, std::string cut = "1") {
   
   std::cout << " var = " << var << std::endl;
+  std::cout << " nbin,min,max = " << nbin << " , " << min<< " , " << max << std::endl;
   
   std::vector< std::pair < int, std::string> > file_list;
   
   file_list.push_back(std::pair<int, std::string> (  0,  "test.0perc.root" ) );
-  file_list.push_back(std::pair<int, std::string> ( 10, "test.10perc.root" ) );
+//   file_list.push_back(std::pair<int, std::string> ( 10, "test.10perc.root" ) );
   file_list.push_back(std::pair<int, std::string> ( 20, "test.20perc.root" ) );
   file_list.push_back(std::pair<int, std::string> ( 50, "test.50perc.root" ) );
   file_list.push_back(std::pair<int, std::string> ( 70, "test.70perc.root" ) );
   
-  std::vector<TH1F> histos;
+  TH1F* histos[file_list.size()];
+  TFile* files[file_list.size()];
   
   for (int ifile=0; ifile<file_list.size(); ifile++) {
 
+    std::cout << " --- " << std::endl;
+//     gDirectory->cd(0);
+    
     TString name   = Form ("h_%d", file_list.at(ifile).first);
     TString nameHR = Form ("%d perc", file_list.at(ifile).first);
-    TH1F histo (name.Data(),nameHR.Data(),nbin,min,max);
+    histos[ifile] = new TH1F(name.Data(), nameHR.Data(), nbin, min, max );
     
-    TFile *file0 = TFile::Open( file_list.at(ifile).second.c_str() );
-    TTree* myTree = (TTree*) file0 -> Get("TreeProducer/tree");
-    TString name = Form ("h_%d", file_list.at(ifile).first);
+//     files[ifile] = TFile::Open( file_list.at(ifile).second.c_str() );
+    files[ifile] = new TFile( file_list.at(ifile).second.c_str(), "READ" );
+    
+    TTree* myTree = (TTree*) files[ifile] -> Get("TreeProducer/tree");
     TString toDraw = Form ("%s >> %s", var.c_str(), name.Data());
+    TString toCut  = Form ("(%s)", cut.c_str());
     
+    std::cout << " ttree GetEntries = " << myTree->GetEntries() << std::endl;
     std::cout << " toDraw = " << toDraw.Data() << std::endl;
+    std::cout << " toCut = "  <<  toCut.Data() << std::endl;
+        
+//     myTree->Draw(toDraw.Data(), toCut.Data(), "goff");
+    myTree->Draw(toDraw.Data(), toCut.Data(), "");
     
-    myTree->Draw(toDraw.Data(), ( std::string("(") + cut + std::string(")") ).c_str(),"goff");
-//     float normalization_0 = h_0 -> Integral(-1,-1);
-//     h_0->Scale(1./normalization_0);
-  
-    histos.push_back(histo);
-    
+    std::cout << " histos[ifile]->GetEntries () = " << histos[ifile]->GetEntries () << std::endl;
+
   }
   
+  std::cout << " --- " << std::endl;
   
   TCanvas* cc = new TCanvas ("cc", "", 800, 600);
   
   for (int ifile=0; ifile<file_list.size(); ifile++) {
   
-    if (ifile==0) histos.at(ifile).Draw();
-    else          histos.at(ifile).Draw("same");
+    if (ifile==0) histos[ifile]->Draw();
+    else          histos[ifile]->Draw("same");
   
-    std::cout << " histos.at(ifile).GetEntries () = " << histos.at(ifile).GetEntries () << std::endl;
+    std::cout << " histos[ifile]->GetEntries () = " << histos[ifile]->GetEntries () << std::endl;
     
   }
   
- 
+
+  
+  
+  //     float normalization_0 = h_0 -> Integral(-1,-1);
+  //     h_0->Scale(1./normalization_0);  
+  
  /* //---- plot
   h_0->SetLineColor(kRed);
   
@@ -57,6 +71,10 @@ void drawSmearing(std::string var, int nbin, float min, float max, std::string c
   h_0->Draw();
  */ 
   //   gPad->SetLogy();
+  
   gPad->SetGrid();
   
 }
+
+
+
