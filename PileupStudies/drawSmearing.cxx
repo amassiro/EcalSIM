@@ -9,28 +9,32 @@ void drawSmearing(std::string var, int nbin, float min, float max, std::string c
   std::vector< std::pair < int, std::string> > file_list;
   
   file_list.push_back(std::pair<int, std::string> (  0,  "test.0perc.root" ) );
-//   file_list.push_back(std::pair<int, std::string> ( 10, "test.10perc.root" ) );
+  file_list.push_back(std::pair<int, std::string> ( 10, "test.10perc.root" ) );
   file_list.push_back(std::pair<int, std::string> ( 20, "test.20perc.root" ) );
   file_list.push_back(std::pair<int, std::string> ( 50, "test.50perc.root" ) );
   file_list.push_back(std::pair<int, std::string> ( 70, "test.70perc.root" ) );
   
   TH1F* histos[file_list.size()];
   TFile* files[file_list.size()];
+
+  for (int ifile=0; ifile<file_list.size(); ifile++) {
+    TString name   = Form ("h_%d", file_list.at(ifile).first);
+    TString nameHR = Form ("%d perc", file_list.at(ifile).first);
+    histos[ifile] = new TH1F(name.Data(), nameHR.Data(), nbin, min, max );
+    files[ifile] = new TFile( file_list.at(ifile).second.c_str(), "READ" );
+  }
+  
   
   for (int ifile=0; ifile<file_list.size(); ifile++) {
 
     std::cout << " --- " << std::endl;
-//     gDirectory->cd(0);
     
     TString name   = Form ("h_%d", file_list.at(ifile).first);
     TString nameHR = Form ("%d perc", file_list.at(ifile).first);
-    histos[ifile] = new TH1F(name.Data(), nameHR.Data(), nbin, min, max );
-    
-//     files[ifile] = TFile::Open( file_list.at(ifile).second.c_str() );
-    files[ifile] = new TFile( file_list.at(ifile).second.c_str(), "READ" );
-    
+    TH1F* histo_temp = new TH1F("TEST", "", nbin, min, max );
+      
     TTree* myTree = (TTree*) files[ifile] -> Get("TreeProducer/tree");
-    TString toDraw = Form ("%s >> %s", var.c_str(), name.Data());
+    TString toDraw = Form ("%s >> TEST", var.c_str());
     TString toCut  = Form ("(%s)", cut.c_str());
     
     std::cout << " ttree GetEntries = " << myTree->GetEntries() << std::endl;
@@ -40,11 +44,15 @@ void drawSmearing(std::string var, int nbin, float min, float max, std::string c
 //     myTree->Draw(toDraw.Data(), toCut.Data(), "goff");
     myTree->Draw(toDraw.Data(), toCut.Data(), "");
     
+    std::cout << " TEST->GetEntries () = " << histo_temp->GetEntries () << std::endl;
+    
+    histos[ifile]->Add(histo_temp);
+    
     std::cout << " histos[ifile]->GetEntries () = " << histos[ifile]->GetEntries () << std::endl;
 
   }
   
-  std::cout << " --- " << std::endl;
+  std::cout << " --------- " << std::endl;
   
   TCanvas* cc = new TCanvas ("cc", "", 800, 600);
   
