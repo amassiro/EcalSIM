@@ -13,8 +13,8 @@ Data:
 
     scp amassiro@lxplus.cern.ch:/afs/cern.ch/user/a/amassiro/work/ECAL/SIM/CMSSW_11_1_0_pre4/src/ECALValidation/EcalSIM/Generation/test.*perc.root   .
     
-    r99t drawSmearing.cxx\(\"std_vector_Ele_sigmaIetaIeta\",100,0,0.5\)
-    r99t drawSmearing.cxx\(\"std_vector_Ele_pt\",100,0,100\)
+    r99t drawSmearing.cxx\(\"std_vector_Ele_pt\",10,0,100\)
+    r99t drawSmearing.cxx\(\"std_vector_Ele_sigmaIetaIeta\",40,0,0.05\)
     
     
 
