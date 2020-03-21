@@ -41,10 +41,15 @@ void drawSmearing(std::string var, int nbin, float min, float max, std::string c
   std::vector< std::pair < int, std::string> > file_list;
   
   file_list.push_back(std::pair<int, std::string> (  0,  "test.0perc.root" ) );
-  file_list.push_back(std::pair<int, std::string> ( 10, "test.10perc.root" ) );
-  file_list.push_back(std::pair<int, std::string> ( 20, "test.20perc.root" ) );
-  file_list.push_back(std::pair<int, std::string> ( 50, "test.50perc.root" ) );
-  file_list.push_back(std::pair<int, std::string> ( 70, "test.70perc.root" ) );
+  file_list.push_back(std::pair<int, std::string> (  1,  "test.0perc.bis.root" ) );
+  file_list.push_back(std::pair<int, std::string> (  2,  "test.0perc.tris.root" ) );
+  file_list.push_back(std::pair<int, std::string> (  3,  "test.0perc.quad.root" ) );
+  
+//   file_list.push_back(std::pair<int, std::string> (  1,  "test.1perc.root" ) );
+//   file_list.push_back(std::pair<int, std::string> ( 10, "test.10percNEW.root" ) );
+//   file_list.push_back(std::pair<int, std::string> ( 20, "test.20perc.root" ) );
+//   file_list.push_back(std::pair<int, std::string> ( 50, "test.50perc.root" ) );
+//   file_list.push_back(std::pair<int, std::string> ( 70, "test.70perc.root" ) );
   
   TH1F* histos[file_list.size()];
   TFile* files[file_list.size()];
