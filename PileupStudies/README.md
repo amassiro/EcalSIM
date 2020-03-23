@@ -20,3 +20,4 @@ Data:
     r99t drawSmearing.cxx\(\"std_vector_Ele_dr03EcalRecHitSumEt\",40,0.00,10.00\)
     
     
+    r99t drawSmearing.cxx\(\"std_vector_Ele_r9\",40,0,1.20,\"std_vector_Ele_pt\>30\"\)
