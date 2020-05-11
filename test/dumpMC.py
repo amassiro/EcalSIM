@@ -48,15 +48,22 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '90X_upgrade2017_realistic_v20'
 process.TreeProducer = cms.EDAnalyzer('TreeProducer',
                             EleTag    = cms.InputTag("slimmedElectrons"),                                      
                             #EleTag    = cms.InputTag("electrons"),
+                            #EleTag    = cms.InputTag("gedGsfElectrons"),
                             vtxTag    = cms.InputTag("offlinePrimaryVertices"),
-                            SuperClusterEBTag    = cms.InputTag("particleFlowSuperClusterECAL:particleFlowSuperClusterECALBarrel"),
-                            SuperClusterEETag    = cms.InputTag("particleFlowSuperClusterECAL:particleFlowSuperClusterECALEndcapWithPreshower"),
+                            #SuperClusterEBTag    = cms.InputTag("particleFlowSuperClusterECAL:particleFlowSuperClusterECALBarrel"),
+                            #SuperClusterEETag    = cms.InputTag("particleFlowSuperClusterECAL:particleFlowSuperClusterECALEndcapWithPreshower"),
+                            SuperClusterEBTag    = cms.InputTag("reducedEgamma:reducedSuperClusters"),
+                            SuperClusterEETag    = cms.InputTag("reducedEgamma:reducedSuperClusters"),
                            )
 
 #vector<reco::SuperCluster>            "particleFlowSuperClusterECAL"   "particleFlowSuperClusterECALBarrel"   "RECO"    
 #vector<reco::SuperCluster>            "particleFlowSuperClusterECAL"   "particleFlowSuperClusterECALEndcapWithPreshower"   "RECO"    
 
 #vector<reco::SuperCluster>            "reducedEgamma"             "reducedSuperClusters"   "PAT"        
+
+
+# miniaod
+#vector<reco::SuperCluster>            "reducedEgamma"             "reducedSuperClusters"   "RECO"    
 
 
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32(50)

@@ -15,6 +15,10 @@ Where:
     /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/ToRebase/CMSSW_11_0_X_2019-10-06-2300/src
     /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/ToRebase/CMSSW_11_0_X_2019-10-17-2300/src
     
+    for testing:
+    
+    /afs/cern.ch/user/a/amassiro/work/ECAL/SIM/CMSSW_11_1_0_pre7/src/ECALValidation
+    
     
 Install:
 
